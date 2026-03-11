@@ -142,6 +142,9 @@ export default function Home(){
                 ))}
 
             </section>
+            <footer>
+                <p>Marius Karlsen sin film søker</p>
+            </footer>
 
         </main>
     )

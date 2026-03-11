@@ -41,8 +41,10 @@ export default function Movie() {
         ) : (
             <p>Laster film...</p>
         )}
+        <footer>
+        <p>Marius Karlsen sin film søker</p>
+        </footer>
     </main>
-
     )
 
 }
