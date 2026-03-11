@@ -107,7 +107,8 @@ export default function Home(){
             <form >
 
                 <label>
-                    Søk etter film
+                    Søk etter film    
+
                     <input
                         type="search"
                         placeholder='Batman'
