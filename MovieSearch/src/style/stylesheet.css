@@ -12,6 +12,11 @@ main {
   padding: 20px;
 }
 
+img{
+  height: 100px;
+  width: auto;
+}
+
 
 /* Tittel */
 h1 {
