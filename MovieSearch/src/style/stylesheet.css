@@ -1,82 +1,107 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
+* {
+  box-sizing: border-box;
   margin: 0;
-  background-color: #000000;
+  padding: 0;
 }
 
 
-/* Hovedcontainer */
+body {
+  font-family: "Arial", sans-serif;
+  background: #0f0f0f;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
 main {
-  max-width: 900px;
+  max-width: 1200px;
   margin: auto;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
-img{
-  height: 100px;
-  width: auto;
-}
-
-
-/* Tittel */
 h1 {
   text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 35px;
 }
 
-
-/* Søkeform */
-form {
+.Søkefelt {
   display: flex;
-  gap: 10px;
   justify-content: center;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-
-  label{
-    color : #000;
-    font-size: large;
-  }
+  margin-bottom: 40px;
 }
 
-input {
-  padding: 8px;
-  font-size: large;
+.Søkefelt label {
+  display: flex;
+  flex-direction: column;
+  width: 340px;
 }
 
-button {
-  padding: 8px 14px;
-  cursor: pointer;
+.Søkefelt input {
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  background: #1c1c1c;
+  color: white;
+  transition: 0.2s;
+}
+
+.Søkefelt input:focus {
+  background: #262626;
+  box-shadow: 0 0 0 2px #e50914;
 }
 
 
-/* Filmgrid */
-section {
+.Filmkort {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 28px;
 }
 
 
-/* Filmkort */
-section a {
+.Filmkort a {
   text-decoration: none;
-  color: black;
-  background: white;
-  padding: 10px;
-  border-radius: 6px;
-  text-align: center;
-}
-
-section a:hover {
-  background: #eaeaea;
+  color: white;
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.25s ease;
 }
 
 
-/* Poster */
-img {
-  max-width: 350px;
+
+.Filmkort a:hover {
+  transform: translateY(-6px);
+}
+
+
+.Filmkort img {
   width: 100%;
-  height: auto;
+  height: 280px;
+  object-fit: cover;
+}
+
+
+.Filmkort h2 {
+  font-size: 1rem;
+  padding: 12px 10px 0 10px;
+}
+
+.Filmkort p {
+  font-size: 0.85rem;
+  padding: 0 10px 12px 10px;
+  color: #bfbfbf;
+}
+
+
+
+select {
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  background: #1c1c1c;
+  color: white;
 }

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import '../style/stylesheet.css'
 
 export default function Movie() {
+
     const { movie } = useParams()
 
     // Lager en ny state for å enkelte filmer
@@ -19,6 +20,9 @@ export default function Movie() {
                 const response = await fetch(`${baseUrl}&i=${movie}`)
                 const data = await response.json()
                 setFilm(data)
+
+                console.log(data)
+
             } catch (error) {
                 console.error(error)
             }
@@ -29,6 +33,7 @@ export default function Movie() {
 
 
     return (
+    <>
     <main>
         {/*Vi setter det som rendres innenfor {film ?} siden vi får en error hvis vi ikke har data*/ }
         {film ? (
@@ -42,11 +47,12 @@ export default function Movie() {
             <p>Laster film...</p>
         )}
 
-        <footer>
-            <p>Marius Karlsen sin film søker</p>
-        </footer>
-
     </main>
+
+    <footer>
+        <p>Marius Karlsen sin film søker</p>
+    </footer>
+    </>
     )
 
 }

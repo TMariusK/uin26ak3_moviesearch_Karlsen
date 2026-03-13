@@ -37,6 +37,9 @@ export default function Home(){
                 const responsepage2 = await fetch(`${baseUrl}&s=James Bond&page=2`)
                 const data2 = await responsepage2.json()
 
+                console.log(data)
+                console.log(data2)
+
                 //Funksjon for å filtrere ut kun filmer fra søket, filtrerer i både response page1 og page2
                 const filterEtterFilm = [...data.Search, ...data2.Search].filter(movie => movie.Type === "movie")
 
@@ -62,6 +65,9 @@ export default function Home(){
 
             const responsepage2 = await fetch(`${baseUrl}&s=${query}&page=2`)
             const data2 = await responsepage2.json()
+
+            console.log(data)
+            console.log(data2)
 
             //Samme funksjonen for å filtrere ut kun filmer fra søket
             const filterEtterFilm = [...data.Search, ...data2.Search].filter(movie => movie.Type === "movie")
@@ -99,16 +105,16 @@ export default function Home(){
 
 
     return (
+        <>
         <main>
 
-            <h1>Forside</h1>
+            <h1>Filmsøker</h1>
 
             {/*<form onSubmit={handleSubmit}>*/}
-            <form >
+            <form className='Søkefelt'>
 
                 <label>
-                    Søk etter film    
-
+                    <p>Søk etter film</p>
                     <input
                         type="search"
                         placeholder='Batman'
@@ -128,11 +134,15 @@ export default function Home(){
 
 
             {/*Her rendrer jeg filmene i en link, slik at man kan gå inn på de*/}
-            <section>
+            <section className='Filmkort'>
 
                 {movies.map((movie) => (
 
-                    <Link key={movie.imdbID} to={`/${movie.imdbID}`}>
+                    console.log(movie),
+                    
+
+                    {/*Jeg kan bytte ut movie.imdbID med movie.Title for å få sluggen i url'en til å bli tittelen. Men den får %20 isteden for mellomrom. Gjør jeg dette rendrer ikke lenger siden filmen, og jeg har ikke klart å finne løsningen på dette. Så jeg har beholdt den slik, så filmene kan rendres ut, men sluggen i url'en forblir ID'en til filmen fra API */},
+                    <Link key={movie.imdbID} to={`/movie/${movie.imdbID}`}>
 
                         <h2>{movie?.Title}</h2>
                         <p>{movie?.Year}</p>
@@ -143,10 +153,12 @@ export default function Home(){
                 ))}
 
             </section>
-            <footer>
-                <p>Marius Karlsen sin film søker</p>
-            </footer>
-
+            
         </main>
+
+        <footer>
+            <p>Marius Karlsen sin film søker</p>
+        </footer>
+        </>
     )
 }
